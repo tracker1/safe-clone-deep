@@ -1,0 +1,40 @@
+{
+  "name": "safe-clone-deep",
+  "version": "1.0.0",
+  "description": "Safely deep clone an object. Will not clone nested objects.",
+  "main": "src/safeCloneDeep.js",
+  "scripts": {
+    "jshint": "npm run jshint-src && npm run jshint-test",
+    "jshint-src": "jshint --config .jshintrc src",
+    "jshint-test": "jshint --config ./test/.jshintrc test",
+    "mocha": "mocha -R spec --recursive ./test/",
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "report": "istanbul report cobertura",
+    "test": "npm run jshint && npm run cover && npm run report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tracker1/safe-clone-deep.git"
+  },
+  "keywords": [
+    "javascript",
+    "object",
+    "clone",
+    "copy",
+    "deep",
+    "safe",
+    "recursive"
+  ],
+  "author": "Michael J. Ryan <tracker1@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tracker1/safe-clone-deep/issues"
+  },
+  "homepage": "https://github.com/tracker1/safe-clone-deep",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "istanbul": "^0.3.0",
+    "jshint": "^2.5.4",
+    "mocha": "^1.21.4"
+  }
+}

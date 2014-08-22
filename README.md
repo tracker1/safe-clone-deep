@@ -11,7 +11,7 @@ npm install safe-clone-deep
 ## Usage
 
 ```javascript
-var clone = require('./');
+var clone = require('safe-clone-deep');
 
 var a = {};
 a.a = a;

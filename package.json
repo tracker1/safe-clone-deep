@@ -1,6 +1,6 @@
 {
   "name": "safe-clone-deep",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Safely deep clone an object. Will not clone nested objects.",
   "main": "src/safeCloneDeep.js",
   "scripts": {

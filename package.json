@@ -9,8 +9,9 @@
     "jshint-test": "jshint --config ./test/.jshintrc test",
     "mocha": "mocha -R spec --recursive ./test/",
     "cover": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "check-cov": "istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
     "report": "istanbul report cobertura",
-    "test": "npm run jshint && npm run cover && npm run report"
+    "test": "npm run jshint && npm run cover && npm run report && npm run check-cov || node scripts/tests-failed"
   },
   "repository": {
     "type": "git",
@@ -32,9 +33,11 @@
   },
   "homepage": "https://github.com/tracker1/safe-clone-deep",
   "devDependencies": {
+    "ansi": "^0.3.0",
     "chai": "^1.9.1",
     "istanbul": "^0.3.0",
     "jshint": "^2.5.4",
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "open": "0.0.5"
   }
 }

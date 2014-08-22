@@ -2,7 +2,7 @@
   "name": "safe-clone-deep",
   "version": "1.0.2",
   "description": "Safely deep clone an object. Will not clone nested objects.",
-  "main": "src/safeCloneDeep.js",
+  "main": "src/index.js",
   "scripts": {
     "jshint": "npm run jshint-src && npm run jshint-test",
     "jshint-src": "jshint --config .jshintrc src",

@@ -4,11 +4,6 @@
 function safeDeepClone(circularValue, refs, obj) {
   var copy, tmp;
 
-  //return Buffer as-is
-  if (typeof Buffer === "function" && obj instanceof Buffer) {
-    return new Buffer(obj);
-  }
-
   // object is a false or empty value, or otherwise not an object
   if (!obj || "object" !== typeof obj) return obj;
 
@@ -21,6 +16,11 @@ function safeDeepClone(circularValue, refs, obj) {
 
   // Handle Array - or array-like items (Buffers)
   if (obj instanceof Array || obj.length) {
+    //return Buffer as-is
+    if (typeof Buffer === "function" && typeof Buffer.isBuffer === "function" && Buffer.isBuffer(obj)) {
+      return new Buffer(obj);
+    }
+    
     refs.push(obj);
     copy = [];
     for (var i = 0, len = obj.length; i < len; i++) {

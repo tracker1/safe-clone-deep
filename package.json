@@ -1,6 +1,6 @@
 {
   "name": "safe-clone-deep",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Safely deep clone an object. Will not clone nested objects.",
   "main": "src/index.js",
   "scripts": {
@@ -11,7 +11,8 @@
     "cover": "istanbul cover ./node_modules/mocha/bin/_mocha",
     "check-cov": "istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
     "report": "istanbul report cobertura",
-    "test": "npm run jshint && npm run cover && npm run report && npm run check-cov || node scripts/tests-failed"
+    "test": "npm run jshint && npm run cover && npm run report && npm run check-cov || node scripts/tests-failed",
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
@@ -34,10 +35,18 @@
   "homepage": "https://github.com/tracker1/safe-clone-deep",
   "devDependencies": {
     "ansi": "^0.3.0",
+    "browserify": "^6.1.0",
     "chai": "^1.9.1",
+    "gulp": "^3.8.9",
+    "gulp-header": "^1.2.2",
+    "gulp-notify": "^2.0.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.0.1",
     "istanbul": "^0.3.0",
     "jshint": "^2.5.4",
     "mocha": "^1.21.4",
-    "open": "0.0.5"
+    "open": "0.0.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0"
   }
 }

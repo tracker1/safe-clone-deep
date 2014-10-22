@@ -3,8 +3,7 @@
 [![NPM version](https://badge.fury.io/js/safe-clone-deep.png)](
  https://www.npmjs.org/package/safe-clone-deep
 ) [![Build Status](https://travis-ci.org/tracker1/safe-clone-deep.png)](
- https://travis-ci.org/tracker1/safe-clone-deep
-)
+ https://travis-ci.org/tracker1/safe-clone-deep)
 
 This module exposes a single function that accepts an object and clones it without circular references.
 

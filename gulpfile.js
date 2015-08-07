@@ -14,7 +14,7 @@ var pkg = require('./package.json')
 
 function getBundler(options) {
   return browserify(options.browserify)
-    .add('./src/index.js')
+    .add('./src/browser-index.js')
     .bundle()
     .on('error', function() {
       var args = Array.prototype.slice.call(arguments);

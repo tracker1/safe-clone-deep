@@ -3,6 +3,7 @@
   "version": "1.0.5",
   "description": "Safely deep clone an object. Will not clone nested objects.",
   "main": "src/index.js",
+  "browser": "src/browser-index.js",
   "scripts": {
     "jshint": "npm run jshint-src && npm run jshint-test",
     "jshint-src": "jshint --config .jshintrc src",
@@ -12,7 +13,10 @@
     "check-cov": "istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
     "report": "istanbul report cobertura",
     "test": "npm run jshint && npm run cover && npm run report && npm run check-cov || node scripts/tests-failed",
-    "build": "gulp"
+    "build": "gulp",
+    "publish-major": "npm version major && npm publish && git push origin master && git push origin --tags",
+    "publish-minor": "npm version minor && npm publish && git push origin master && git push origin --tags",
+    "publish-patch": "npm version patch && npm publish && git push origin master && git push origin --tags"
   },
   "repository": {
     "type": "git",

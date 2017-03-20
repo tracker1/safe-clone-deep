@@ -22,7 +22,7 @@ function safeDeepClone(circularValue, refs, obj, Buffer) {
     if (typeof Buffer === "function" && typeof Buffer.isBuffer === "function" && Buffer.Buffer(obj)) {
       return new Buffer(obj);
     }
-    
+
     refs.push(obj);
     copy = [];
     for (var i = 0, len = obj.length; i < len; i++) {
@@ -48,7 +48,7 @@ function safeDeepClone(circularValue, refs, obj, Buffer) {
   }
 
   for (var attr in obj) {
-    if (obj.hasOwnProperty(attr)) {
+    if (Object.hasOwnProperty.call(obj, attr)) {
       if (refs.indexOf(obj[attr]) >= 0) {
         copy[attr] = circularValue;
       } else {

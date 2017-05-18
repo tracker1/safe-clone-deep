@@ -48,7 +48,7 @@ function safeDeepClone(circularValue, refs, obj, Buffer) {
   }
 
   for (var attr in obj) {
-    if (obj.hasOwnProperty(attr)) {
+    if (Object.prototype.hasOwnProperty.call(obj, attr)) {
       if (refs.indexOf(obj[attr]) >= 0) {
         copy[attr] = circularValue;
       } else {

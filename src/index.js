@@ -1,6 +1,6 @@
 'use strict';
 
-var Buffer = require('Buffer');
+var Buffer = require('buffer');
 var safeDeepClone = require('./safe-deep-clone');
 
 //method to wrap the cloning method

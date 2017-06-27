@@ -1,4 +1,4 @@
-/* safe-clone-deep v1.0.5 - https://github.com/tracker1/safe-clone-deep */
+/* safe-clone-deep v1.1.4 - https://github.com/tracker1/safe-clone-deep */
 
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),(f.Object||(f.Object={})).safeCloneDeep=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
@@ -22,7 +22,7 @@ module.exports = cloneWrap;
 module.exports = safeDeepClone;
 
 //method to perform the clone
-function safeDeepClone(circularValue, refs, obj, isBuffer) {
+function safeDeepClone(circularValue, refs, obj, Buffer) {
   var copy, tmp;
 
   // object is a false or empty value, or otherwise not an object
@@ -38,7 +38,7 @@ function safeDeepClone(circularValue, refs, obj, isBuffer) {
   // Handle Array - or array-like items (Buffers)
   if (obj instanceof Array || obj.length) {
     //return Buffer as-is
-    if (typeof isBuffer === "function" && isBuffer(obj)) {
+    if (typeof Buffer === "function" && typeof Buffer.isBuffer === "function" && Buffer.Buffer(obj)) {
       return new Buffer(obj);
     }
     
@@ -67,7 +67,7 @@ function safeDeepClone(circularValue, refs, obj, isBuffer) {
   }
 
   for (var attr in obj) {
-    if (obj.hasOwnProperty(attr)) {
+    if (Object.prototype.hasOwnProperty.call(obj, attr)) {
       if (refs.indexOf(obj[attr]) >= 0) {
         copy[attr] = circularValue;
       } else {
@@ -78,5 +78,6 @@ function safeDeepClone(circularValue, refs, obj, isBuffer) {
   refs.pop();
   return copy;
 }
+
 },{}]},{},[1])(1)
 });
